@@ -1,6 +1,8 @@
-const button = document.createElement("button");
-button.addEventListener("click", handleClick);
+const num1 = 1;
+const num2 = 1;
 
-function handleClick(e: MouseEvent) {
-  console.log(e.target);
+function sum(a: number, b: number) {
+  return a + b;
 }
+
+sum(15);
