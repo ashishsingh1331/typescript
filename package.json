@@ -1,23 +1,15 @@
 {
   "name": "axelerant-typescript-course",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ashishsingh1331/typescript.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ashishsingh1331/typescript/issues"
-  },
-  "homepage": "https://github.com/ashishsingh1331/typescript#readme",
   "devDependencies": {
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.3",
+    "vite": "^5.4.0"
   }
 }
