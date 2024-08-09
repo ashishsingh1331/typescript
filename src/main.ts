@@ -1,19 +1,10 @@
-type Options = { debugMod: boolean; indentLevel?: number };
-
-function printNameAndAge(
-  name: string,
-  { debugMod = false, indentLevel = 1 }: Options
-) {
-  console.log(name, debugMod, indentLevel);
+function sumWithCallback(a: number, b: number, cb: (sum: number) => void) {
+  cb(a + b);
 }
 
-printNameAndAge("sdf", { debugMod: true, indentLevel: 34 });
+sumWithCallback(1, 2, (sum) => {
+  console.log(sum);
+});
 
-// Rest operatoiin
-
-function sum(...nums: number[]) {
-  return; // code to add them
-}
-
-sum(1, 2, 4);
-sum(1, 4);
+// Defining funciton as a type
+type PrintNameFunc = (name: string) => void;
