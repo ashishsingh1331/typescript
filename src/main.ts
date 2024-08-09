@@ -1,14 +1,11 @@
-let id: string | number | boolean = 7;
-id = true;
-console.log(id);
-
-// ? symbol is way of union between undefined and boolean
-
-type Todo = {
-  status: "Complete" | "Incomplete";
+type Person = {
   name: string;
+  age: number;
 };
 
-let todo: Todo = { name: "My", status: "Complete" };
+type PersonWithId = Person & { id: string };
 
-// Union does not work with interface
+const person: Person = { name: "ashish", age: 34 };
+
+const personWithId: PersonWithId = { ...person, id: "Myid" };
+// Interesction is useful when we want to add additional types in existing type
