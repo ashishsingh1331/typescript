@@ -1,12 +1,23 @@
 type Person = {
   name: string;
-  age: number;
+  skillLevel: "Beginner" | "Intermediate" | "Expert" | "Master";
 };
 
-const age = getValue("age", { name: "Ashish", age: 23 });
-console.log(age);
-// This key we are passing but what should be the type as this need to be dynamic
-// So there is a type call keyof
-function getValue(key: keyof Person, person: Person) {
-  return person[key];
+const person: Person = { name: "Ashish", skillLevel: "Intermediate" };
+printSkillLevel(person.skillLevel);
+
+function printSkillLevel(skillLevel: Person["skillLevel"]) {
+  console.log(skillLevel);
 }
+
+type PeopleGroupedBySkillLevel = {
+  [index in Person["skillLevel"]]: Person[];
+};
+
+const a: PeopleGroupedBySkillLevel = {
+  Beginner: [{ name: "Ashish", skillLevel: "Intermediate" }],
+};
+
+// How can we type, object of groupby
+// {"Beginner": [person1,person]}
+// Main point is
