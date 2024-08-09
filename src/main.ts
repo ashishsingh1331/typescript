@@ -1,3 +1,5 @@
-function printName(name: string): void {
-  console.log(name);
+function printNameAndAge(name: string, options?: { debugMod: boolean }) {
+  console.log(name, options);
 }
+
+printNameAndAge("sdf");
