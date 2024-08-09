@@ -1,37 +1,15 @@
-type Person = {
-  name: string;
-  age: number;
-  isProgrammer?: boolean;
-  friends?: string[];
-  address: {
-    street: string;
-  };
-};
-
-const person: Person = {
-  name: "Ashish",
-  age: 34,
-  address: {
-    street: "Janakpuri",
-  },
-};
-
-const person2: Person = {
-  name: "Arti",
-  age: 34,
-  address: {
-    street: "Janakpuri",
-  },
-};
-
-// Interface can only be used with objects
-
-interface Animal {
-  name: string;
-  age: number;
-  isProgrammer?: boolean;
-  friends?: string[];
-  address: {
-    street: string;
-  };
+function sum(a: number, b: number) {
+  return a + b;
 }
+
+const c = sum(1, 2);
+
+console.log(c);
+
+function printPerson(person: { name: string }) {
+  console.log(person.name);
+}
+
+const person = { name: "Ashish", age: 20 };
+
+printPerson(person);
