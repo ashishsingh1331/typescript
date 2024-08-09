@@ -1,12 +1,5 @@
-let a: string = "hi";
-// Infer is typescipt is smart enough to infer type of variable based on the value
-a = 2;
+// Benefit of getting autocomplete and error protection
+let a;
+// Downside of using any, we loose all features provided by typescript
 
-const b = 4;
-
-b = 4;
-
-const c = null;
-
-let d: null = null;
-d = undefined;
+const b = JSON.parse("fasd"); // fetch also return type of any as response can be of any type
