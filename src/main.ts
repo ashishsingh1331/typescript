@@ -1,10 +1,14 @@
-function sumWithCallback(a: number, b: number, cb: (sum: number) => void) {
-  cb(a + b);
-}
+let id: string | number | boolean = 7;
+id = true;
+console.log(id);
 
-sumWithCallback(1, 2, (sum) => {
-  console.log(sum);
-});
+// ? symbol is way of union between undefined and boolean
 
-// Defining funciton as a type
-type PrintNameFunc = (name: string) => void;
+type Todo = {
+  status: "Complete" | "Incomplete";
+  name: string;
+};
+
+let todo: Todo = { name: "My", status: "Complete" };
+
+// Union does not work with interface
