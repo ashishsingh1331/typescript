@@ -1,23 +1,21 @@
+const nums = ["1", "2", "3"] as const;
+// as const is useful for construtiung enums
+// Enums are helpful when we want to create a variable which can take specific values
+
+const SKILL_LEVELS = ["Beginner", "Intermediate", "Expert"] as const; // Here we created ENUM
+
 type Person = {
-  name: string;
-  skillLevel: "Beginner" | "Intermediate" | "Expert" | "Master";
+  skillLevels: (typeof SKILL_LEVELS)[number];
 };
-
-const person: Person = { name: "Ashish", skillLevel: "Intermediate" };
-printSkillLevel(person.skillLevel);
-
-function printSkillLevel(skillLevel: Person["skillLevel"]) {
+SKILL_LEVELS.forEach((skillLevel) => {
   console.log(skillLevel);
-}
+});
 
-type PeopleGroupedBySkillLevel = {
-  [index in Person["skillLevel"]]: Person[];
-};
-
-const a: PeopleGroupedBySkillLevel = {
-  Beginner: [{ name: "Ashish", skillLevel: "Intermediate" }],
-};
-
-// How can we type, object of groupby
-// {"Beginner": [person1,person]}
-// Main point is
+// as const is helpful to create every property of object as readonly
+const person = {
+  name: "Kyle",
+  age: 28,
+  address: {
+    street: "Main st",
+  },
+} as const;
