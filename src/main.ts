@@ -1,21 +1,15 @@
-const nums = ["1", "2", "3"] as const;
-// as const is useful for construtiung enums
-// Enums are helpful when we want to create a variable which can take specific values
-
-const SKILL_LEVELS = ["Beginner", "Intermediate", "Expert"] as const; // Here we created ENUM
-
-type Person = {
-  skillLevels: (typeof SKILL_LEVELS)[number];
+// Tuples is helpfule to create type of different types
+const person = {
+  name: "Ashish",
+  age: "37",
 };
-SKILL_LEVELS.forEach((skillLevel) => {
-  console.log(skillLevel);
+
+console.log(Object.entries(person));
+
+Object.entries(person).forEach(([key, value]) => {
+  console.log(key);
+  console.log(value);
 });
 
-// as const is helpful to create every property of object as readonly
-const person = {
-  name: "Kyle",
-  age: 28,
-  address: {
-    street: "Main st",
-  },
-} as const;
+type Tuple = [string, boolean];
+const a: Tuple = ["ashish", true, "Adfsa"];
