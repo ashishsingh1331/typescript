@@ -1,10 +1,13 @@
-// using unknown type is better than using any. Using any means we are forfetting the purpose or typescript
-// using unknown we put additional checks before the variable usage so
+// Using AS we can cast a variable to a speicific type. Most of the time we know what will the BE api will return
+
+type Todo = {
+  title: string;
+};
 function func(data: unknown) {
-  if (
-    data != null &&
-    typeof data === "object" &&
-    "name" in data &&
-  )
-    console.log(data.name);
+  fetch("sdf")
+    .then((res) => res.json())
+    .then((data) => {
+      return data as Todo;
+    })
+    .then((todo) => {});
 }
