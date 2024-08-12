@@ -1,8 +1,10 @@
-// Reaonly is used to create new type based on already existing type, but we need all the properties as readonly
+// Using awaited we can get the type of promise will return
+type Async = Promise<string>;
 
-type Todo = {
-  title: string;
-  completed: boolean;
-};
+type Value = Awaited<Async>;
 
-type ReadOnlyTodo = Readonly<Todo>;
+async function doSomething() {
+  return 3;
+}
+
+type New = Awaited<ReturnType<typeof doSomething>>;
