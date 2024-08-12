@@ -1,6 +1,4 @@
-// Omit and pick built in types are helpful when we want to create a new type based on available type
-// And we just want to pick only view or omit few properties
-
+// Using partial we can create all properties of object as optional while creting new type
 type Todo = {
   id: string;
   name: string;
@@ -8,5 +6,8 @@ type Todo = {
   completed: boolean;
 };
 
-// So we ommited id here
-type NewTodo = Omit<Todo, "id">;
+//Partial - all properties are now optional
+type FormTodo = Partial<Todo>;
+
+// Required - all properties are now required but not tested
+type NewFormTodo = Required<Todo>;
