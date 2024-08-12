@@ -1,22 +1,23 @@
-// On giving type to a object , we strictly says the variable should meet all the signature
-// But Suppose if we say we have a object , we just want to meet the minimun requirements
-// Then we can use satisfies feature of TS.
+// This feature of TS is useful when we have a type properties with multiple values and other properties
+// is dependent on the value of another
+// For. eg. sucess are error response
 
-type Todo = {
-  title: string;
-  dueDate: string | Date;
-  isComplete: boolean;
+type SuccessResponse = {
+  status: "Success";
+  data: { id: string; name: string };
 };
 
-// const todo: Todo = {
-//   title: "todo",
-//   dueDate: new Date(),
-//   isComplete: false,
-// };
+type ErrorResponse = {
+  status: "Error";
+  errorMessage: "There is erro";
+};
 
-const todo = {
-  title: "todo",
-  dueDate: new Date(),
-  isComplete: false,
-} satisfies Todo;
-todo.dueDate.setDate(4);
+type UserApiResponse = SuccessResponse | ErrorResponse;
+
+function handleResponse(response: UserApiResponse) {
+  if (response.status == "Success") {
+    console.log(response.data.name);
+  } else {
+    console.log(response.errorMessage);
+  }
+}
