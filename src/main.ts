@@ -1,10 +1,12 @@
-// ReturnType is used to get the type of data return by function and create a new type
+// Record is better way to create the signature of type based on index of another type
 
-function checkLength(a: string, b: number) {
-  return a.length < b;
-}
+type Person = {
+  name: string;
+  age: number;
+};
 
-type ReturnTypeOfCheckLength = ReturnType<typeof checkLength>;
+// type PeopleGroupedByName = {
+//   [index: string]: Person[];
+// };
 
-// Parameters built in type is helpful to get type of parameters passed to function
-type Params = Parameters<typeof checkLength>;
+type PeopleGroupedByName = Record<Person["name"], Person[]>;
